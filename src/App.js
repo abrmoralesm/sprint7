@@ -1,25 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Cheked from './components/Taula/Checked';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> JAAAAR.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Cheked />
+  )
+       
+  
 }
 
 export default App;

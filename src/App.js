@@ -1,5 +1,5 @@
 import './App.css';
-import Cheked from './components/Taula/Checked';
+import Cheked from './components/Checked/Checked';
 function App() {
   return (
     <Cheked />

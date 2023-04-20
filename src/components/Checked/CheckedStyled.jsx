@@ -18,7 +18,6 @@ export const Container = styled.div`
     gap: 1.5rem;
     > label {
       font-size: 1.3rem;
-
       > input {
         margin-right: 1rem;
       }
@@ -28,7 +27,6 @@ export const Container = styled.div`
       font-size: 1.4rem;
     }
   }
-
   height: 60rem;
   max-width: 60rem;
   margin: 10rem auto;
@@ -53,6 +51,4 @@ export const Container = styled.div`
     display: flex;
     justify-content: start;
   }
-
 `;
-

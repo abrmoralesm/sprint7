@@ -32,7 +32,7 @@ const useFormulari = () => {
     return extras;
   };
 
-  const calcularTotal = (valor, numero) => {
+  const calculateTotal = (valor, numero) => {
     const operaciones = {
       web: () => {
         return formulario.web.active
@@ -62,30 +62,58 @@ const useFormulari = () => {
   const setOpcio = (valor) => {
     setFormulari((prev) => ({
       ...prev,
-      [valor]: { active: !prev[valor].active, precio: prev[valor].precio },
-      total: calcularTotal(valor),
+      [valor]: {
+        active: !prev[valor].active,
+        precio: prev[valor].precio,
+      },
+      total: calculateTotal(valor),
     }));
   };
 
-  const setPages = (numeroPagines) => {
-    if (numeroPagines < 0 || isNaN(numeroPagines)) return;
+  const setPages = (numeroPaginas) => {
+    if (numeroPaginas < 0 || isNaN(numeroPaginas)) return;
     setFormulari((prev) => ({
       ...prev,
-      extras: { pages: numeroPagines, languages: prev.extras.languages },
-      total: calcularTotal("pages", numeroPagines),
+      extras: {
+        pages: numeroPaginas,
+        languages: prev.extras.languages,
+      },
+      total: calculateTotal("pages", numeroPaginas),
     }));
   };
 
-  const setLanguage = (numLanguages) => {
-    if (numLanguages < 0 || isNaN(numLanguages)) return;
+  const setLanguages = (numeroIdiomas) => {
+    if (numeroIdiomas < 0 || isNaN(numeroIdiomas)) return;
     setFormulari((prev) => ({
       ...prev,
-      extras: { pages: prev.extras.pages, languages: numLanguages },
-      total: calcularTotal("languages", numLanguages),
+      extras: {
+        pages: prev.extras.pages,
+        languages: numeroIdiomas,
+      },
+      total: calculateTotal("languages", numeroIdiomas),
     }));
   };
-
-  return { formulario, setOpcio, setPages, setLanguage };
+  const handleClick = (id) => {
+    switch (id) {
+      case "pagesInc":
+        setPages(formulario.extras.pages ? formulario.extras.pages + 1 : 1);
+        break;
+      case "pagesDec":
+        setPages(formulario.extras.pages - 1);
+        break;
+      case "languagesInc":
+        setLanguages(
+          formulario.extras.languages ? formulario.extras.languages + 1 : 1
+        );
+        break;
+      case "languagesDec":
+        setLanguages(formulario.extras.languages - 1);
+        break;
+      default:
+        return;
+    }
+  };
+  return { formulario, setOpcio, setPages, setLanguages,  handleClick };
 };
 
 export default useFormulari;

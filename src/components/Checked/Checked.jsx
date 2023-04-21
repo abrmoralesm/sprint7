@@ -3,7 +3,7 @@ import Dropdown from "../Dropdown/Dropdown";
 import { Container } from "./CheckedStyled";
 
 const Checked = () => {
-  const { formulario, setOpcio, setPages, setLanguage } = useFormulario();
+  const { formulario, setOpcio, setPages, setLanguage, handleClick } = useFormulario();
   const { web, seo, ads, total } = formulario;
 
   return (
@@ -25,6 +25,7 @@ const Checked = () => {
             languages={formulario.extras.languages}
             setPages={setPages}
             setLanguage={setLanguage}
+            handleClick={handleClick}
           />
         )}
         <label htmlFor="inputSeo">

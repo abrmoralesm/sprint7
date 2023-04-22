@@ -1,30 +1,48 @@
-import useFormulario from "../../lib/hooks/useFormulari";
+import useForm from "../../lib/hooks/useForm";
+import { useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown";
+import { setStorage } from "../../lib/utils/localStorage";
 import { Container } from "./CheckedStyled";
 
 const Checked = () => {
-  const { formulario, setOpcio, setPages, setLanguage, handleClick } = useFormulario();
-  const { web, seo, ads, total } = formulario;
+  const { form, setOpcio, setPages, setLanguages, handleClick } = useForm();
+
+  const {
+    web: { active: webActive },
+    seo: { active: seoActive },
+    ads: { active: adsActive },
+    extres: { pages, languages },
+    total,
+  } = form;
+
+  useEffect(() => {
+    setStorage("webActive", webActive);
+    setStorage("paginesWeb", pages);
+    setStorage("idiomesWeb", languages);
+    setStorage("seoActive", seoActive);
+    setStorage("adsActive", adsActive);
+    setStorage("total", total);
+  }, [webActive, seoActive, adsActive, pages, languages, total]);
 
   return (
-    <Container className="checked">
+    <Container className="taula">
       <h2>¿Qué quieres hacer?</h2>
       <div>
         <label htmlFor="inputWeb">
           <input
             id="inputWeb"
             type="checkbox"
-            checked={web.active}
-            onChange={setOpcio.bind(null, "web")}
+            checked={webActive}
+            onChange={(e) => setOpcio("web")}
           />
           Una página web (500€)
         </label>
-        {web.active && (
+        {webActive && (
           <Dropdown
-            pages={formulario.extras.pages}
-            languages={formulario.extras.languages}
+            pages={pages}
+            languages={languages}
             setPages={setPages}
-            setLanguage={setLanguage}
+            setLanguages={setLanguages}
             handleClick={handleClick}
           />
         )}
@@ -32,8 +50,8 @@ const Checked = () => {
           <input
             id="inputSeo"
             type="checkbox"
-            checked={seo.active}
-            onChange={setOpcio.bind(null, "seo")}
+            checked={seoActive}
+            onChange={(e) => setOpcio("seo")}
           />
           Una consultoria SEO (300€)
         </label>
@@ -41,10 +59,10 @@ const Checked = () => {
           <input
             id="inputAds"
             type="checkbox"
-            checked={ads.active}
-            onChange={setOpcio.bind(null, "ads")}
+            checked={adsActive}
+            onChange={(e) => setOpcio("ads")}
           />
-          Una campaña de Google Ads (200€)
+          Una campañaa de Google Ads (200€)
         </label>
         <p>Precio:&nbsp;{total}€</p>
       </div>

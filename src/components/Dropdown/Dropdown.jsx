@@ -1,21 +1,22 @@
 import { Container } from "./DropdownStyled";
+import Push from "../Button/Button";
 
-
-
-import Boto from "../Button/Button";
-
-
-const Dropdown = ({ pages, languages, setPages, setLanguage, handleClick }) => (
+const Dropdown = ({
+  pages,
+  languages,
+  setPages,
+  setLanguages,
+  handleClick,
+}) => (
   <Container>
     <div>
-      <label htmlFor="pages">Número de páginas</label>
+      <label htmlFor="pages">Número de págines</label>
       <div>
-        <Boto
-          id="pagesDec"
+        <Push
+          id="pagesDown"
           value="-"
           onClick={(e) => handleClick(e.target.id)}
         />
-       
         <input
           id="pages"
           type="text"
@@ -23,8 +24,8 @@ const Dropdown = ({ pages, languages, setPages, setLanguage, handleClick }) => (
           value={pages}
           onChange={(e) => setPages(+e.target.value)}
         />
-        <Boto
-          id="pagesInc"
+        <Push
+          id="pagesUp"
           value="+"
           onClick={(e) => handleClick(e.target.id)}
         />
@@ -33,21 +34,20 @@ const Dropdown = ({ pages, languages, setPages, setLanguage, handleClick }) => (
     <div>
       <label htmlFor="languages">Número de idiomas</label>
       <div>
-        <Boto
-          id="pagesDec"
+        <Push
+          id="languagesDown"
           value="-"
           onClick={(e) => handleClick(e.target.id)}
         />
-
         <input
           id="languages"
           type="text"
           min="0"
           value={languages}
-          onChange={(e) => setLanguage(+e.target.value)}
+          onChange={(e) => setLanguages(+e.target.value)}
         />
-        <Boto
-          id="languagesInc"
+        <Push
+          id="languagesUp"
           value="+"
           onClick={(e) => handleClick(e.target.id)}
         />
@@ -55,5 +55,4 @@ const Dropdown = ({ pages, languages, setPages, setLanguage, handleClick }) => (
     </div>
   </Container>
 );
-
 export default Dropdown;

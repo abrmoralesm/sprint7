@@ -6,6 +6,7 @@ body {
   background-color: #5A7D7C;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(232, 232, 232);
+  
 }
 
 * {
@@ -13,3 +14,4 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+

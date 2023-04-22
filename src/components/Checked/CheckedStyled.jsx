@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "../Button/ButtonStyled.jsx";
 
 export const Container = styled.div`
   display: flex;
@@ -6,6 +7,12 @@ export const Container = styled.div`
   justify-content: center;
   align-items: start;
   gap: 2rem;
+  height: 100%;
+  position: relative;
+  > html {
+    overflow: hidden;
+    height: 100%;
+  }
   > h2 {
     font-size: 1.8rem;
   }
@@ -18,6 +25,7 @@ export const Container = styled.div`
     gap: 1.5rem;
     > label {
       font-size: 1.3rem;
+      font-weight: 500;
       > input {
         margin-right: 1rem;
       }
@@ -25,30 +33,16 @@ export const Container = styled.div`
     > p {
       margin-top: 1rem;
       font-size: 1.4rem;
+      font-weight: bold;
     }
   }
-  height: 60rem;
-  max-width: 60rem;
-  margin: 10rem auto;
-  padding: 3rem 2rem;
-  background-color: #232c33;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  gap: 2rem;
-  border: 0.1rem solid #dadff7;
-  border-radius: 3rem;
-  > h1 {
-    width: 90%;
-    text-align: center;
-    font-size: 2.5rem;
-    border-bottom: 1.2rem solid #fff;
-  }
-  > div {
-    width: 90%;
-    padding: 1rem;
-    display: flex;
-    justify-content: start;
-  }
+`;
+
+export const ButtonCalc = styled(Button)`
+  width: auto;
+  height: auto;
+  align-self: center;
+  padding: 0.5rem 5rem;
+  position: relative;
+  bottom: 0;
 `;

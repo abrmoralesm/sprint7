@@ -5,9 +5,9 @@ const useForm = () => {
   const [form, setFormulari] = useState(formulariInicial);
 
   const {
-    web: { active: webActive, preu: webPreu },
-    seo: { active: seoActive, preu: seoPreu },
-    ads: { active: adsActive, preu: adsPreu },
+    web: { active: webActive, precio: webPreu },
+    seo: { active: seoActive, precio: seoPreu },
+    ads: { active: adsActive, precio: adsPreu },
     extres: { pages, languages },
     total,
   } = form;
@@ -50,7 +50,7 @@ const useForm = () => {
   const setOpcio = (valor) => {
     setFormulari((prev) => ({
       ...prev,
-      [valor]: { active: !prev[valor].active, preu: prev[valor].preu },
+      [valor]: { active: !prev[valor].active, precio: prev[valor].precio },
       total: calcularTotal(valor),
     }));
   };

@@ -8,6 +8,10 @@ export const Container = styled.div`
   border: 0.2rem solid #444;
   border-radius: 1.5rem;
   padding: 1rem;
+  > html {
+    height: 100%;
+    overflow: hidden;
+  }
   > div {
     width: 100%;
     display: flex;
@@ -27,7 +31,6 @@ export const Container = styled.div`
         border: 0.1rem solid #444;
         border-radius: 1rem;
       }
-      
     }
   }
 `;

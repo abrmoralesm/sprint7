@@ -1,10 +1,12 @@
 import useForm from "../../lib/hooks/useForm";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import { setStorage } from "../../lib/utils/localStorage";
-import { Container } from "./CheckedStyled";
+import { Container, ButtonCalc } from "./CheckedStyled";
 
 const Checked = () => {
+  const navega = useNavigate();
   const { form, setOpcio, setPages, setLanguages, handleClick } = useForm();
 
   const {
@@ -25,7 +27,7 @@ const Checked = () => {
   }, [webActive, seoActive, adsActive, pages, languages, total]);
 
   return (
-    <Container className="taula">
+    <Container>
       <h2>¿Qué quieres hacer?</h2>
       <div>
         <label htmlFor="inputWeb">
@@ -66,6 +68,9 @@ const Checked = () => {
         </label>
         <p>Precio:&nbsp;{total}€</p>
       </div>
+      <ButtonCalc classname="boto" onClick={() => navega("/")}>
+        Volver
+      </ButtonCalc>
     </Container>
   );
 };

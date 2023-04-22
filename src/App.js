@@ -1,8 +1,7 @@
 import './App.css';
-import Cheked from './components/Checked/Checked';
-function App() {
+import Router from "./modules/Router";function App() {
   return (
-    <Cheked />
+    <Router  />
   )
        
   

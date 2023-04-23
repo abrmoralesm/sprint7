@@ -1,7 +1,7 @@
 import { Button } from "./ButtonStyled"
 
-const Push = ({ style, id, onClick, value }) => (
-  <Button style={style} id={id} onClick={onClick}>
+const Push = ({ id, onClick, value }) => (
+  <Button id={id} onClick={onClick}>
     {value}
   </Button>
 );

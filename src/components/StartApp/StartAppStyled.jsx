@@ -60,6 +60,9 @@ export const Container = styled.div`
         background-color: #3e8e41;
       }
     }
+    .link {
+      font-weight: bolder;
+      color: ${({ theme }) => theme.colors.borderError};
+    }
   }
-  
 `;

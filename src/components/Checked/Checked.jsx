@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import { setStorage } from "../../lib/utils/localStorage";
 import { Container, ButtonCalc } from "./CheckedStyled";
+import ModalInfo from "../ModalInfo/ModalInfo";
+import { useModal } from "../../lib/hooks/useModal";
 
 const Checked = () => {
   const navega = useNavigate();
@@ -16,6 +18,9 @@ const Checked = () => {
     extres: { pages, languages },
     total,
   } = form;
+
+  const { modal, handleModalInfo } = useModal();
+  const { open, idp, ids, text, valor } = modal;
 
   useEffect(() => {
     setStorage("webActive", webActive);
@@ -46,6 +51,7 @@ const Checked = () => {
             setPages={setPages}
             setLanguages={setLanguages}
             handleClick={handleClick}
+            handleModalInfo={handleModalInfo}
           />
         )}
         <label htmlFor="inputSeo">
@@ -68,9 +74,17 @@ const Checked = () => {
         </label>
         <p>Precio:&nbsp;{total}€</p>
       </div>
-      <ButtonCalc classname="boto" onClick={() => navega("/")}>
-        Volver
-      </ButtonCalc>
+      <ButtonCalc onClick={() => navega("/")}>SALIR</ButtonCalc>
+      {open && (
+        <ModalInfo
+          id="modal"
+          onClick={(e) => handleModalInfo(e.target.id)}
+          idp={idp}
+          ids={ids}
+          text={text}
+          valor={valor}
+        />
+      )}
     </Container>
   );
 };

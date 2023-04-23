@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0.2rem solid #444;
+  border: 0.2rem solid ${({ theme }) => theme.colors.border};
   border-radius: 1.5rem;
   padding: 1rem;
   > html {
@@ -15,6 +15,7 @@ export const Container = styled.div`
   > div {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
@@ -25,10 +26,11 @@ export const Container = styled.div`
     > div {
       display: flex;
       gap: 0.5rem;
+
       > input {
         width: 7rem;
         padding: 0.2rem 0.3rem;
-        border: 0.1rem solid #444;
+        border: 0.1rem solid ${({ theme }) => theme.colors.border};
         border-radius: 1rem;
       }
     }

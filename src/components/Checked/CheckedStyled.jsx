@@ -28,6 +28,10 @@ export const Container = styled.div`
       font-weight: 500;
       > input {
         margin-right: 1rem;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     > p {

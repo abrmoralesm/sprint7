@@ -1,5 +1,6 @@
 import { Container } from "./DropdownStyled";
 import Push from "../Button/Button";
+import PushInfo from "../ButtonInfo/ButtonInfo";
 
 const Dropdown = ({
   pages,
@@ -7,6 +8,7 @@ const Dropdown = ({
   setPages,
   setLanguages,
   handleClick,
+  handleModalInfo,
 }) => (
   <Container>
     <div>
@@ -29,6 +31,10 @@ const Dropdown = ({
           value="+"
           onClick={(e) => handleClick(e.target.id)}
         />
+        <PushInfo
+          id="infoPages"
+          onClick={(e) => handleModalInfo(e.target.id)}
+        />
       </div>
     </div>
     <div>
@@ -50,6 +56,10 @@ const Dropdown = ({
           id="languagesUp"
           value="+"
           onClick={(e) => handleClick(e.target.id)}
+        />
+        <PushInfo
+          id="infoLanguages"
+          onClick={(e) => handleModalInfo(e.target.id)}
         />
       </div>
     </div>

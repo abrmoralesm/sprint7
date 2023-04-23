@@ -1,6 +1,6 @@
 import { theme } from "./lib/constants/theme";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles";
+import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles.jsx";
 import Router from "./modules/Router";
 
 

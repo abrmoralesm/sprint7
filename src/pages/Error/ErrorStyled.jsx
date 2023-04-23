@@ -5,7 +5,7 @@ export const Img = styled.img`
   background: #fff;
   display: block;
   padding: 2rem;
-  border: 1rem solid #ff5522;
+  border: 1rem solid #ff0000;
   border-radius: 50%;
   max-width: 100%;
   height: auto;

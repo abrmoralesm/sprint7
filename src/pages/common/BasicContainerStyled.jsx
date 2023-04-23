@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100%;
-  overflow: hidden;
-  max-width: 60rem;
-  margin: 10rem auto;
-  padding: 3rem 2rem;
+  height: 60rem;
+  width: 75rem;
+  margin: 5rem auto;
+  padding: 3rem 1rem;
   background-color: #232c33;
   display: flex;
   flex-direction: column;
@@ -15,16 +14,10 @@ export const Container = styled.div`
   border: 0.2rem solid #444;
   border-radius: 2rem;
   > html {
-    overflow:hidden;
+    overflow: hidden;
     height: 100%;
   }
-  > h1 {
-    width: 90%;
-    text-align: center;
-    font-size: 2.5rem;
-    border-bottom: 0.2rem solid #444;
-  }
-  > h2 {
+  > h1, h2 {
     width: 90%;
     text-align: center;
     font-size: 2.5rem;

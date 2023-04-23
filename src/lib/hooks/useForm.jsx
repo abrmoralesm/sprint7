@@ -6,13 +6,14 @@ const useForm = () => {
 
   const {
     web: { active: webActive, precio: webPreu },
+    extres: { pages, languages },
     seo: { active: seoActive, precio: seoPreu },
     ads: { active: adsActive, precio: adsPreu },
-    extres: { pages, languages },
+
     total,
   } = form;
 
-  const calcularExtres = (valor, numero) => {
+  const calculateExtres = (valor, numero) => {
     let sumaExtres = 0;
     if (seoActive) sumaExtres += seoPreu;
     if (adsActive) sumaExtres += adsPreu;
@@ -37,39 +38,46 @@ const useForm = () => {
         return adsActive ? total - adsPreu : total + adsPreu;
       }
       case "pages": {
-        return calcularExtres("pages", numero);
+        return calculateExtres("pages", numero);
       }
       case "languages": {
-        return calcularExtres("languages", numero);
+        return calculateExtres("languages", numero);
       }
       default:
         break;
     }
   };
 
-  const setOpcio = (valor) => {
+  const setDades = (key, valor) => {
     setFormulari((prev) => ({
       ...prev,
-      [valor]: { active: !prev[valor].active, precio: prev[valor].precio },
-      total: calcularTotal(valor),
+      [key]: valor,
     }));
   };
 
-  const setPages = (numeroPagines) => {
-    if (numeroPagines < 0 || isNaN(numeroPagines)) return;
+  const setOption = (key) => {
     setFormulari((prev) => ({
       ...prev,
-      extres: { pages: numeroPagines, languages: prev.extres.languages },
-      total: calcularTotal("pages", numeroPagines),
+      [key]: { actiu: !prev[key].actiu, preu: prev[key].preu },
+      total: calcularTotal(key),
     }));
   };
 
-  const setLanguages = (numeroIdiomes) => {
-    if (numeroIdiomes < 0 || isNaN(numeroIdiomes)) return;
+  const setPages = (numPages) => {
+    if (numPages < 0 || isNaN(numPages)) return;
     setFormulari((prev) => ({
       ...prev,
-      extres: { pages: prev.extres.pages, languages: numeroIdiomes },
-      total: calcularTotal("languages", numeroIdiomes),
+      extres: { pages: numPages, languages: prev.extres.languages },
+      total: calcularTotal("pages", numPages),
+    }));
+  };
+
+  const setLanguages = (numLanguages) => {
+    if (numLanguages < 0 || isNaN(numLanguages)) return;
+    setFormulari((prev) => ({
+      ...prev,
+      extres: { pages: prev.extres.pages, languages: numLanguages },
+      total: calcularTotal("languages", numLanguages),
     }));
   };
 
@@ -95,7 +103,8 @@ const useForm = () => {
   return {
     form,
     setFormulari,
-    setOpcio,
+    setDades,
+    setOption,
     setPages,
     setLanguages,
     handleClick,

@@ -8,10 +8,6 @@ export const Container = styled.div`
   gap: 2.5rem;
   height: 100%;
   position: relative;
-  > html {
-    height: 100%;
-    overflow: hidden;
-  }
   > p {
     font-size: 1.6rem;
     font-weight: bold;
@@ -42,27 +38,9 @@ export const Container = styled.div`
     list-style: none;
     position: absolute;
     bottom: 0;
-    .button-link {
-      text-decoration: none;
-    }
-    .button {
-      background-color: #4caf50;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      &:hover {
-        background-color: #3e8e41;
-      }
-    }
     .link {
       font-weight: bolder;
-      color: ${({ theme }) => theme.colors.borderError};
+      color: ${({ theme }) => theme.colors.voraError};
     }
   }
 `;

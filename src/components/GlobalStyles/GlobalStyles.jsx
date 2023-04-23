@@ -8,7 +8,6 @@ body {
   background-color: ${({ theme }) => theme.colors.backPage};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: ${({ theme }) => theme.colors.letter};
-  height: 100vh;
 }
 * {
   margin: 0;

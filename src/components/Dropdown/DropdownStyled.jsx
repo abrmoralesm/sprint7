@@ -14,8 +14,8 @@ export const Container = styled.div`
   }
   > div {
     width: 100%;
+    height: 4rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
@@ -25,11 +25,12 @@ export const Container = styled.div`
     }
     > div {
       display: flex;
+      align-items: center;
       gap: 0.5rem;
 
       > input {
         width: 7rem;
-        padding: 0.2rem 0.3rem;
+        padding: 0.4rem 0.3rem;
         border: 0.1rem solid ${({ theme }) => theme.colors.border};
         border-radius: 1rem;
       }

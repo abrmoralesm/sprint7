@@ -1,5 +1,5 @@
 export const theme = {
-  fontSizeGeneral: "62.5%",
+  fontSizeGeneral: "60%",
   colors: {
     backPage: "#5A7D7C",
     backContainer: "#daf7a6",

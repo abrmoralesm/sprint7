@@ -1,22 +1,23 @@
 export const ordenarLlista = (ordre, registre, search) => {
   switch (ordre) {
     case "alfabetic":
-      return [...registre].sort(
-        (previ, actual) =>
-          previ.numPresupuesto.toLowerCase() >
-          actual.numPresupuesto.toLowerCase()
+      return [...registre].sort((a, b) =>
+        a.numPresupuesto
+          .toLowerCase()
+          .localeCompare(b.numPresupuesto.toLowerCase())
       );
     case "cronologic":
-      return [...registre].sort((previ, actual) => previ.data + actual.data);
-
+      return [...registre].sort(
+        (a, b) => new Date(a.data).getTime() - new Date(b.data).getTime()
+      );
     case "search":
-      const trobat = registre.filter((element) =>
+      return registre.filter((element) =>
         element.numPresupuesto.toLowerCase().includes(search)
       );
-      return trobat;
     case "perDefecte":
       return registre;
     default:
-      return console.log("Opción no disponible");
+      console.log("Opción no disponible");
+      return registre;
   }
 };

@@ -42,7 +42,6 @@ export const Container = styled.div`
         font-size: 1.3rem;
         font-weight: 500;
       }
-      
       > input {
         width: 17rem;
         padding: 0.5rem;
@@ -85,12 +84,19 @@ export const BotoRegistre = styled(Button)`
 
 export const Container2 = styled.div`
   width: 35rem;
-  height: 90%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   gap: 2rem;
+
+  > div:nth-of-type(1) {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 `;
 
 export const ButtonCalc = styled(Button)`

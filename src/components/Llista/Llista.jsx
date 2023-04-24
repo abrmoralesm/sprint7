@@ -2,14 +2,14 @@ import ItemLlista from "../ItemLlista/ItemLlista";
 import LlistaBuida from "./LlistaBuida";
 import { Container } from "./llistaStyled";
 
-const Llista = ({ llista }) => {
+const Llista = ({ llistaOrdenada }) => {
   return (
     <Container>
-      {llista.length === 0 ? (
+      {llistaOrdenada.length === 0 ? (
         <LlistaBuida />
       ) : (
         <ul style={{ width: "100%" }}>
-          {llista.map((pressupost) => (
+          {llistaOrdenada.map((pressupost) => (
             <ItemLlista key={pressupost.id} pressupost={pressupost} />
           ))}
         </ul>

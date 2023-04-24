@@ -1,6 +1,6 @@
 import useForm from "../../lib/hooks/useForm";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import { setStorage } from "../../lib/utils/localStorage";
 import {
@@ -14,6 +14,7 @@ import ModalInfo from "../ModalInfo/ModalInfo";
 import { useModal } from "../../lib/hooks/useModal";
 import { useRegistre } from "../../lib/hooks/useRegistre";
 import Llista from "../Llista/Llista";
+import { ordenarLlista } from "../../lib/utils/ordenarLlista";
 
 const Checked = () => {
   const navega = useNavigate();
@@ -30,8 +31,9 @@ const Checked = () => {
     total,
   } = form;
   const { registre, handleRegistre } = useRegistre();
-  const llista = [...registre];
-
+  const [ordre, setOrdre] = useState("perDefecte");
+  const llistaOrdenada = ordenarLlista(ordre, registre);
+  
   const { modal, handleModalInfo } = useModal();
   const { open, idp, ids, text, valor } = modal;
 
@@ -131,7 +133,19 @@ const Checked = () => {
         </Container>
         <Container2>
           <h2>Listado presupuestos</h2>
-          <Llista llista={llista} />
+
+          <div>
+            <BotoRegistre onClick={(e) => setOrdre("alfabetic")}>
+              Ordre Alfabètic
+            </BotoRegistre>
+            <BotoRegistre onClick={(e) => setOrdre("cronologic")}>
+              Ordre Cronològic
+            </BotoRegistre>
+            <BotoRegistre onClick={(e) => setOrdre("perDefecte")}>
+              Ordre de Registre
+            </BotoRegistre>
+          </div>
+          <Llista llistaOrdenada={llistaOrdenada} />
         </Container2>
         {open && (
           <ModalInfo

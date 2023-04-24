@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { formulariInicial } from "../constants/formulariInicial";
+import { FORMULARI_INICIAL } from "../constants/formulariInicial";
 
 const useForm = () => {
-  const [form, setFormulari] = useState(formulariInicial);
+  const [form, setFormulari] = useState(FORMULARI_INICIAL);
 
   const {
     web: { active: webActive, precio: webPreu },

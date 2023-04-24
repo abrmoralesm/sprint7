@@ -33,7 +33,7 @@ const Checked = () => {
   const { registre, handleRegistre } = useRegistre();
   const [ordre, setOrdre] = useState("perDefecte");
   const llistaOrdenada = ordenarLlista(ordre, registre);
-  
+
   const { modal, handleModalInfo } = useModal();
   const { open, idp, ids, text, valor } = modal;
 
@@ -136,10 +136,10 @@ const Checked = () => {
 
           <div>
             <BotoRegistre onClick={(e) => setOrdre("alfabetic")}>
-              Ordre Alfabètic
+              Orden Alfabético
             </BotoRegistre>
             <BotoRegistre onClick={(e) => setOrdre("cronologic")}>
-              Ordre Cronològic
+              Orden Cronológico
             </BotoRegistre>
             <BotoRegistre onClick={(e) => setOrdre("perDefecte")}>
               Ordre de Registre

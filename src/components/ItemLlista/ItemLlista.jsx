@@ -6,10 +6,10 @@ const ItemLlista = ({ pressupost }) => {
     data,
     nombreCliente,
     numPresupuesto,
-    web: { actiu: webActiu },
-    extres: { pagines, idiomes },
-    seo: { actiu: seoActiu },
-    ads: { actiu: adsActiu },
+    web: { active: webActive },
+    extres: { pages, languages },
+    seo: { active: seoActive },
+    ads: { active: adsActive },
     total,
   } = pressupost;
 
@@ -36,17 +36,17 @@ const ItemLlista = ({ pressupost }) => {
         <li>
           <span>Pedido:</span>
           <ul>
-            {webActiu && (
+            {webActive && (
               <div>
                 <li>1 Pàgina web</li>
                 <ul>
-                  <li>Pàgines:&nbsp;{pagines}</li>
-                  <li>Idiomes:&nbsp; {idiomes}</li>
+                  <li>Pàgines:&nbsp;{pages}</li>
+                  <li>Idiomes:&nbsp; {languages}</li>
                 </ul>
               </div>
             )}
-            {seoActiu && <li>1 Consultoria SEO</li>}
-            {adsActiu && <li>1 Campanya Google Ads</li>}
+            {seoActive && <li>1 Consultoria SEO</li>}
+            {adsActive && <li>1 Campanya Google Ads</li>}
           </ul>
         </li>
       </div>

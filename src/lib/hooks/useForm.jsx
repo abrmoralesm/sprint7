@@ -5,19 +5,19 @@ const useForm = () => {
   const [form, setFormulari] = useState(FORMULARI_INICIAL);
 
   const {
-    web: { active: webActive, precio: webPreu },
+    web: { active: webActive, precio: webPrecio },
     extres: { pages, languages },
-    seo: { active: seoActive, precio: seoPreu },
-    ads: { active: adsActive, precio: adsPreu },
+    seo: { active: seoActive, precio: seoPrecio },
+    ads: { active: adsActive, precio: adsPrecio },
 
     total,
   } = form;
 
   const calculateExtres = (valor, numero) => {
     let sumaExtres = 0;
-    if (seoActive) sumaExtres += seoPreu;
-    if (adsActive) sumaExtres += adsPreu;
-    if (webActive) sumaExtres += webPreu;
+    if (seoActive) sumaExtres += seoPrecio;
+    if (adsActive) sumaExtres += adsPrecio;
+    if (webActive) sumaExtres += webPrecio;
     valor === "pages"
       ? (sumaExtres += numero * 30 + languages * 30)
       : (sumaExtres += pages * 30 + numero * 30);
@@ -28,14 +28,14 @@ const useForm = () => {
     switch (valor) {
       case "web": {
         return webActive
-          ? total - webPreu - pages * 30 - languages * 30
-          : total + webPreu + pages * 30 + languages * 30;
+          ? total - webPrecio - pages * 30 - languages * 30
+          : total + webPrecio + pages * 30 + languages * 30;
       }
       case "seo": {
-        return seoActive ? total - seoPreu : total + seoPreu;
+        return seoActive ? total - seoPrecio : total + seoPrecio;
       }
       case "ads": {
-        return adsActive ? total - adsPreu : total + adsPreu;
+        return adsActive ? total - adsPrecio : total + adsPrecio;
       }
       case "pages": {
         return calculateExtres("pages", numero);
@@ -58,7 +58,7 @@ const useForm = () => {
   const setOption = (key) => {
     setFormulari((prev) => ({
       ...prev,
-      [key]: { actiu: !prev[key].actiu, preu: prev[key].preu },
+      [key]: { active: !prev[key].active, precio: prev[key].precio },
       total: calcularTotal(key),
     }));
   };

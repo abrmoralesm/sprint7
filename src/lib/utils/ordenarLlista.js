@@ -1,13 +1,22 @@
-export const ordenarLlista = (ordre, registre) => {
+export const ordenarLlista = (ordre, registre, search) => {
   switch (ordre) {
     case "alfabetic":
       return [...registre].sort(
         (previ, actual) =>
-          previ.nombreCliente.toLowerCase() > actual.nombreCliente.toLowerCase()
+          previ.numPresupuesto.toLowerCase() >
+          actual.numPresupuesto.toLowerCase()
       );
     case "cronologic":
       return [...registre].sort((previ, actual) => previ.data + actual.data);
-    default:
+
+    case "search":
+      const trobat = registre.filter((element) =>
+        element.numPresupuesto.toLowerCase().includes(search)
+      );
+      return trobat;
+    case "perDefecte":
       return registre;
+    default:
+      return console.log("Opción no disponible");
   }
 };

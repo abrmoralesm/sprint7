@@ -5,16 +5,17 @@ import Dropdown from "../Dropdown/Dropdown";
 import { setStorage } from "../../lib/utils/localStorage";
 import {
   Container,
-  ContainerTaula,
-  BotoRegistre,
-  Container2,
   ButtonCalc,
+  ContainerTaula,
+  Container2,
+  BotoRegistre,
 } from "./CheckedStyled";
 import ModalInfo from "../ModalInfo/ModalInfo";
 import { useModal } from "../../lib/hooks/useModal";
 import { useRegistre } from "../../lib/hooks/useRegistre";
 import Llista from "../Llista/Llista";
 import { ordenarLlista } from "../../lib/utils/ordenarLlista";
+import ButtonSearch from "../ButtonSearch/ButtonSearch";
 
 const Checked = () => {
   const navega = useNavigate();
@@ -31,8 +32,11 @@ const Checked = () => {
     total,
   } = form;
   const { registre, handleRegistre } = useRegistre();
+
   const [ordre, setOrdre] = useState("perDefecte");
-  const llistaOrdenada = ordenarLlista(ordre, registre);
+  const [search, setSearch] = useState("");
+
+  const llistaOrdenada = ordenarLlista(ordre, registre, search, setSearch);
 
   const { modal, handleModalInfo } = useModal();
   const { open, idp, ids, text, valor } = modal;
@@ -74,7 +78,7 @@ const Checked = () => {
               />
             </div>
             <div>
-              <label htmlFor="numPresupuesto">Nº Presupuesto</label>
+              <label htmlFor="numPresupuesto">Nombre Presupuesto</label>
               <input
                 id="numPresupuesto"
                 type="text"
@@ -142,8 +146,19 @@ const Checked = () => {
               Orden Cronológico
             </BotoRegistre>
             <BotoRegistre onClick={(e) => setOrdre("perDefecte")}>
-              Ordre de Registre
+              Ordre de Registro
             </BotoRegistre>
+          </div>
+          <div>
+            <label htmlFor="nomSearch">Buscar: </label>
+            <input
+              id="nomSearch"
+              type="text"
+              min="0"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <ButtonSearch onClick={(e) => setOrdre("search")} />
           </div>
           <Llista llistaOrdenada={llistaOrdenada} />
         </Container2>

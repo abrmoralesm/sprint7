@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 60rem;
-  width: 75rem;
+  width: 85rem;
   margin: 5rem auto;
   padding: 3rem 1rem;
   background-color: #232c33;
@@ -24,8 +24,8 @@ export const Container = styled.div`
     border-bottom: 0.2rem solid #444;
   }
   > div {
-    width: 90%;
-    padding: 1rem;
+    width: 95%;
+    padding: 0.5rem;
     display: flex;
     justify-content: start;
     position: relative;

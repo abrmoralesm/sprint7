@@ -1,4 +1,4 @@
-export const pressupostInicial = {
+export const initialPressupost = {
   pressupost: {
     nombreCliente: "",
     numPresupuesto: "",

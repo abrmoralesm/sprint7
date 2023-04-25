@@ -19,7 +19,7 @@ export const useModal = () => {
           idp: "de páginas",
           ids: "página",
           text: textPages,
-          valor: getStorage("paginesWeb") ?? 0,
+          valor: getStorage("pagesWebWeb") ?? 0,
         });
         return;
       case "infoLanguages":

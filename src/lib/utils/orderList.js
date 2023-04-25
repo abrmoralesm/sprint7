@@ -1,23 +1,23 @@
-export const ordenarLlista = (ordre, registre, search) => {
+export const orderList = (ordre, registro, search) => {
   switch (ordre) {
     case "alfabetic":
-      return [...registre].sort((a, b) =>
+      return [...registro].sort((a, b) =>
         a.numPresupuesto
           .toLowerCase()
           .localeCompare(b.numPresupuesto.toLowerCase())
       );
     case "cronologic":
-      return [...registre].sort(
+      return [...registro].sort(
         (a, b) => new Date(a.data).getTime() - new Date(b.data).getTime()
       );
     case "search":
-      return registre.filter((element) =>
+      return registro.filter((element) =>
         element.numPresupuesto.toLowerCase().includes(search)
       );
     case "perDefecte":
-      return registre;
+      return registro;
     default:
       console.log("Opción no disponible");
-      return registre;
+      return registro;
   }
 };

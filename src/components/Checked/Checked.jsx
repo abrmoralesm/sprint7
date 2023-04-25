@@ -14,7 +14,7 @@ import ModalInfo from "../ModalInfo/ModalInfo";
 import { useModal } from "../../lib/hooks/useModal";
 import { useRegistre } from "../../lib/hooks/useRegistre";
 import Llista from "../Llista/Llista";
-import { ordenarLlista } from "../../lib/utils/ordenarLlista";
+import { orderList } from "../../lib/utils/orderList";
 import ButtonSearch from "../ButtonSearch/ButtonSearch";
 
 const Checked = () => {
@@ -32,30 +32,30 @@ const Checked = () => {
     ads: { active: adsActive },
     total,
   } = form;
-  const { registre, handleRegistre } = useRegistre();
+  const { registro, handleRegistre } = useRegistre();
 
   const [ordre, setOrdre] = useState("perDefecte");
   const [search, setSearch] = useState("");
 
-  const llistaOrdenada = ordenarLlista(ordre, registre, search, setSearch);
+  const listaOrdenada = orderList(ordre, registro, search, setSearch);
 
   const { modal, handleModalInfo } = useModal();
   const { open, idp, ids, text, valor } = modal;
 
-const [parametres, setParametres] = useSearchParams({});
-console.log(parametres);
+  const [parametres, setParametres] = useSearchParams({});
+  console.log(parametres);
 
   useEffect(() => {
     setStorage("id", id);
     setStorage("nombreCliente", nombreCliente);
     setStorage("numPresupuesto", numPresupuesto);
     setStorage("webActive", webActive);
-    setStorage("paginesWeb", pages);
+    setStorage("pagesWebWeb", pages);
     setStorage("idiomesWeb", languages);
     setStorage("seoActive", seoActive);
     setStorage("adsActive", adsActive);
     setStorage("total", total);
-    setStorage("registre", registre);
+    setStorage("registro", registro);
     setParametres({
       nombreCliente: nombreCliente,
       paginaWeb: webActive,
@@ -74,7 +74,7 @@ console.log(parametres);
     pages,
     languages,
     total,
-    registre,
+    registro,
     setParametres,
   ]);
 
@@ -177,7 +177,7 @@ console.log(parametres);
             />
             <ButtonSearch onClick={(e) => setOrdre("search")} />
           </div>
-          <Llista llistaOrdenada={llistaOrdenada} />
+          <Llista listaOrdenada={listaOrdenada} />
         </Container2>
         {open && (
           <ModalInfo

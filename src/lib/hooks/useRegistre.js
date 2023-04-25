@@ -4,18 +4,18 @@ import "dayjs/locale/ca";
 import { getStorage, setStorage } from "../utils/localStorage";
 
 export const useRegistre = () => {
-  const [registre, setRegistre] = useState(getStorage("registre")?? []);
+  const [registro, setRegistre] = useState(getStorage("registro") ?? []);
 
- const handleRegistre = (form) => {
-   form.id++;
-   form.data = dayjs(new Date()).locale("ca-es").format("D MMMM, YYYY");
-   const newForm = { ...form };
-   setRegistre((prev) => [...prev, newForm]);
-   setStorage("registre", [...registre, newForm]);
- };
+  const handleRegistre = (form) => {
+    form.id++;
+    form.data = dayjs(new Date()).locale("ca-es").format("D MMMM, YYYY");
+    const newForm = { ...form };
+    setRegistre((prev) => [...prev, newForm]);
+    setStorage("registro", [...registro, newForm]);
+  };
 
   return {
-    registre,
+    registro,
     handleRegistre,
   };
 };

@@ -53,11 +53,11 @@ export const Container = styled.div`
     }
   }
   > p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 1.5;
   }
   > ul {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding-left: 2rem;
     font-weight: normal;
     > li {

@@ -40,7 +40,7 @@ export const Container = styled.div`
     bottom: 0;
     .link {
       font-weight: bolder;
-      color: ${({ theme }) => theme.colors.voraError};
+      color: ${({ theme }) => theme.colors.borderError};
     }
   }
 `;

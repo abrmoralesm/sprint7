@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Item = styled.ul`
   margin: 0.7rem;
   padding: 1rem;
-  background-color: ${({ theme }) => theme.colors.fonsModal};
-  border: 0.3rem solid ${({ theme }) => theme.colors.fonsInfo};
+  background-color: ${({ theme }) => theme.colors.backModal};
+  border: 0.3rem solid ${({ theme }) => theme.colors.backInfo};
   border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -15,8 +15,8 @@ export const Item = styled.ul`
     list-style: none;
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.2rem solid ${({ theme }) => theme.colors.fonsInfo};
-    color: ${({ theme }) => theme.colors.fonsInfo};
+    border-bottom: 0.2rem solid ${({ theme }) => theme.colors.backInfo};
+    color: ${({ theme }) => theme.colors.backInfo};
     padding: 0 1rem 0.25rem;
     margin-bottom: 0.25rem;
   }
@@ -55,8 +55,8 @@ export const Item = styled.ul`
     }
   }
   > li {
-    border-top: 0.2rem solid ${({ theme }) => theme.colors.fonsInfo};
-    color: ${({ theme }) => theme.colors.fonsInfo};
+    border-top: 0.2rem solid ${({ theme }) => theme.colors.backInfo};
+    color: ${({ theme }) => theme.colors.backInfo};
     margin-top: 0.25rem;
     padding: 0.25rem 1rem 0;
   }

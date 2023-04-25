@@ -11,7 +11,6 @@ const popUp = keyframes`
   }
 `;
 
-
 export const Overlay = styled.div`
   animation: ${popUp} 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 
@@ -21,11 +20,10 @@ export const Overlay = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${({ theme }) => theme.colors.fonsOverlay};
+  background-color: ${({ theme }) => theme.colors.backOverlay};
 `;
 
 export const Container = styled.div`
-
   position: relative;
   top: 40%;
   left: 50%;

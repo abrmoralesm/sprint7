@@ -1,5 +1,5 @@
 import useForm from "../../lib/hooks/useForm";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import { setStorage } from "../../lib/utils/localStorage";
@@ -42,6 +42,9 @@ const Checked = () => {
   const { modal, handleModalInfo } = useModal();
   const { open, idp, ids, text, valor } = modal;
 
+const [parametres, setParametres] = useSearchParams({});
+console.log(parametres);
+
   useEffect(() => {
     setStorage("id", id);
     setStorage("nombreCliente", nombreCliente);
@@ -53,6 +56,14 @@ const Checked = () => {
     setStorage("adsActive", adsActive);
     setStorage("total", total);
     setStorage("registre", registre);
+    setParametres({
+      nombreCliente: nombreCliente,
+      paginaWeb: webActive,
+      campaniaSeo: seoActive,
+      campaniaAds: adsActive,
+      paginasWeb: pages,
+      idiomasWeb: languages,
+    });
   }, [
     id,
     nombreCliente,
@@ -64,6 +75,7 @@ const Checked = () => {
     languages,
     total,
     registre,
+    setParametres,
   ]);
 
   return (

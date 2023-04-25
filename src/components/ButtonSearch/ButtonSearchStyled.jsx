@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Icon = styled.i`
+export const Icona = styled.i`
   margin-left: 0.5rem;
   padding: 0.25rem 0.25rem 0;
   font-size: 1.5rem;

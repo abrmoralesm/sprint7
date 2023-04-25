@@ -1,10 +1,10 @@
 import { IoAlertCircleOutline } from "react-icons/io5";
-import { Icon } from "./ButtonInfoStyled.jsx";
+import { Icona } from "./ButtonInfoStyled.jsx";
 
 const PushInfo = ({ id, onClick }) => (
-  <Icon>
+  <Icona>
     <IoAlertCircleOutline onClick={onClick} id={id} />
-  </Icon>
+  </Icona>
 );
 
 export default PushInfo;

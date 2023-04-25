@@ -23,6 +23,7 @@ const Checked = () => {
     useForm();
 
   const {
+    id,
     nombreCliente,
     numPresupuesto,
     web: { active: webActive },
@@ -42,6 +43,7 @@ const Checked = () => {
   const { open, idp, ids, text, valor } = modal;
 
   useEffect(() => {
+    setStorage("id", id);
     setStorage("nombreCliente", nombreCliente);
     setStorage("numPresupuesto", numPresupuesto);
     setStorage("webActive", webActive);
@@ -50,7 +52,9 @@ const Checked = () => {
     setStorage("seoActive", seoActive);
     setStorage("adsActive", adsActive);
     setStorage("total", total);
+    setStorage("registre", registre);
   }, [
+    id,
     nombreCliente,
     numPresupuesto,
     webActive,
@@ -59,6 +63,7 @@ const Checked = () => {
     pages,
     languages,
     total,
+    registre,
   ]);
 
   return (

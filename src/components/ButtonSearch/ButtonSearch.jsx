@@ -1,10 +1,10 @@
 import { IoSearch } from "react-icons/io5";
-import { Icon } from "./ButtonSearchStyled.jsx";
+import { Icona } from "./ButtonSearchStyled.jsx";
 
 const ButtonSearch = ({ onClick }) => (
-  <Icon>
+  <Icona>
     <IoSearch onClick={onClick} />
-  </Icon>
+  </Icona>
 );
 
 export default ButtonSearch;

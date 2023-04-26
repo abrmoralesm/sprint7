@@ -21,7 +21,19 @@ const Checked = () => {
   const navega = useNavigate();
   const { form, setDades, setOption, setPages, setLanguages, handleClick } =
     useForm();
+const isFormValid = () => {
+    if (!webActive && !seoActive && !adsActive) {
+      alert('Por favor elija una opción'); // show an error message
+      return false;
+    }
+    return true;
+  }
 
+  const onSaveBudget = () => {
+    if (isFormValid()) {
+      handleRegistre(form); // save the budget
+    }
+  }
   const {
     id,
     nombreCliente,
@@ -146,7 +158,7 @@ const Checked = () => {
             <hr />
             <div className="total">
               <p>Precio:&nbsp;{total}€</p>
-              <BotoRegistre onClick={(e) => handleRegistre(form)}>
+              <BotoRegistre onClick={onSaveBudget}>
                 Guardar Presupuesto
               </BotoRegistre>
             </div>

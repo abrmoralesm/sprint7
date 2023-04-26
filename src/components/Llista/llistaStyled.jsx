@@ -9,4 +9,5 @@ export const Container = styled.div`
   border: 0.2rem solid ${({ theme }) => theme.colors.border};
   border-radius: 1.5rem;
   overflow: auto;
+ 
 `;

@@ -2,6 +2,26 @@ import { useState } from "react";
 import { textPages, textLanguagues } from "../data/textModal";
 import { getStorage } from "../utils/localStorage";
 
+const storageKeys = {
+  pagesWebWeb: "pagesWebWeb",
+  idiomesWeb: "idiomesWeb",
+};
+
+const modalContentMap = {
+  infoPages: {
+    idp: "de páginas",
+    ids: "página",
+    text: textPages,
+    storageKey: storageKeys.pagesWebWeb,
+  },
+  infoLanguages: {
+    idp: "de idiomas",
+    ids: "idioma",
+    text: textLanguagues,
+    storageKey: storageKeys.idiomesWeb,
+  },
+};
+
 export const useModal = () => {
   const [modal, setModal] = useState({
     open: false,
@@ -12,32 +32,21 @@ export const useModal = () => {
   });
 
   const handleModalInfo = (id) => {
-    switch (id) {
-      case "infoPages":
-        setModal({
-          open: true,
-          idp: "de páginas",
-          ids: "página",
-          text: textPages,
-          valor: getStorage("pagesWebWeb") ?? 0,
-        });
-        return;
-      case "infoLanguages":
-        setModal({
-          open: true,
-          idp: "de idiomas",
-          ids: "idioma",
-          text: textLanguagues,
-          valor: getStorage("idiomesWeb") ?? 0,
-        });
-        return;
-      case "modal":
-        setModal((prev) => !prev.open);
-        return;
-      default:
-        return;
-    }
+    const content = modalContentMap[id];
+    if (!content) return;
+
+    setModal({
+      open: true,
+      idp: content.idp,
+      ids: content.ids,
+      text: content.text,
+      valor: getStorage(content.storageKey) ?? 0,
+    });
   };
 
-  return { modal, handleModalInfo };
+  const handleModalToggle = () => {
+    setModal((prev) => ({ ...prev, open: !prev.open }));
+  };
+
+  return { modal, handleModalInfo, handleModalToggle };
 };

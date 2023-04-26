@@ -7,11 +7,10 @@ export const useRegistre = () => {
   const [registro, setRegistre] = useState(getStorage("registro") ?? []);
 
   const handleRegistre = (form) => {
-    form.id++;
+    form.id = registro.length + 1;
     form.data = dayjs(new Date()).locale("ca-es").format("D MMMM, YYYY");
-    const newForm = { ...form };
-    setRegistre((prev) => [...prev, newForm]);
-    setStorage("registro", [...registro, newForm]);
+    setRegistre((prev) => [...prev, form]);
+    setStorage("registro", registro);
   };
 
   return {
